@@ -1,0 +1,8 @@
+{
+  "name": "PaisaWise",
+  "description": "Student-focused personal finance app helping college students track campus expenses, monthly allowances, category budgets, and pocket money survival runway.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,448 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Royal Violet (Primary) & Variations */
+  --color-primary: #4C3478;
+  --color-primary-hover: #3B275F;
+  --color-primary-container: #EDE7FF;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #4C3478;
+
+  /* Bright Lavender (Accent) */
+  --color-accent: #8B6FE8;
+  --color-accent-subtle: #EDE7FF;
+
+  /* Mint Green & Pale Mint */
+  --color-mint: #42CBA5;
+  --color-mint-hover: #36b08e;
+  --color-mint-subtle: #E5F8F1;
+  --color-on-mint-subtle: #186851;
+  --color-secondary: #42CBA5;
+  --color-secondary-container: #E5F8F1;
+  --color-on-secondary-container: #186851;
+
+  /* Main Surfaces & Canvas (Lavender & Mint 2.0) */
+  --color-surface: #F7F5FC;
+  --color-surface-dim: #E9E4F2;
+  --color-surface-bright: #ffffff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #F7F5FC;
+  --color-surface-container: #F1EDFA;
+  --color-surface-container-high: #E9E4F2;
+  --color-surface-container-highest: #DFD8EB;
+
+  /* Typography */
+  --color-on-surface: #29233A;
+  --color-on-surface-variant: #777187;
+  --color-outline: #777187;
+  --color-outline-variant: #E9E4F2;
+
+  /* Coral Red for Errors & Overspending */
+  --color-error: #E56B75;
+  --color-error-container: #FDECEE;
+  --color-on-error-container: #8A1F29;
+
+  /* Soft Yellow for Warnings & Alerts */
+  --color-warning: #D99B00;
+  --color-warning-container: #FFE8A3;
+  --color-on-warning-container: #684800;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #F7F5FC;
+    color: #29233A;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Violet focus ring standard */
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid #8B6FE8;
+    outline-offset: 2px;
+  }
+}
+
+/* Reduced motion accessibility compliance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Tabular numbers for clean financial alignment */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom scrollbar hiding helper */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ========================================================================= */
+/* LAVENDER & MINT 2.0 MAPPINGS (Preserving existing component classes)       */
+/* ========================================================================= */
+
+/* Main canvas background: Soft lavender-tinted background #F7F5FC */
+.bg-\[\#F7F5FC\],
+.bg-\[\#f8faf9\],
+.bg-\[\#f2fcf2\] {
+  background-color: #F7F5FC !important;
+}
+
+/* Soft Lavender containers and secondary wells #EDE7FF */
+.bg-\[\#EDE7FF\],
+.bg-\[\#ecf6ed\],
+.bg-\[\#f0f4f2\],
+.bg-\[\#f0f5f2\],
+.bg-\[\#e8f0eb\] {
+  background-color: #EDE7FF !important;
+}
+
+/* Pale Mint container #E5F8F1 */
+.bg-\[\#E5F8F1\],
+.bg-\[\#d1fae5\],
+.bg-\[\#ecfdf5\],
+.bg-\[\#83f9c5\] {
+  background-color: #E5F8F1 !important;
+}
+
+.bg-\[\#83f9c5\]\/30,
+.bg-\[\#83f9c5\]\/20,
+.bg-\[\#E5F8F1\]\/50 {
+  background-color: rgba(229, 248, 241, 0.7) !important;
+}
+
+/* Borders and Hairline Dividers: #E9E4F2 */
+.border-\[\#E9E4F2\],
+.border-\[\#e2e8e4\],
+.border-\[\#e1ebe1\],
+.border-\[\#dbe5dc\],
+.border-\[\#dce4de\] {
+  border-color: #E9E4F2 !important;
+}
+
+/* Primary Royal Violet Actions #4C3478 */
+.bg-\[\#4C3478\],
+.bg-\[\#0d382c\],
+.bg-\[\#123d32\] {
+  background-color: #4C3478 !important;
+  color: #FFFFFF !important;
+}
+
+/* Deep Violet Hover #3B275F */
+.hover\:bg-\[\#3B275F\]:hover,
+.hover\:bg-\[\#082920\]:hover,
+.hover\:bg-\[\#00261e\]:hover,
+.bg-\[\#3B275F\],
+.bg-\[\#082920\],
+.bg-\[\#00261e\] {
+  background-color: #3B275F !important;
+}
+
+/* Bright Lavender Accent #8B6FE8 */
+.bg-\[\#8B6FE8\] {
+  background-color: #8B6FE8 !important;
+  color: #FFFFFF !important;
+}
+.text-\[\#8B6FE8\] {
+  color: #8B6FE8 !important;
+}
+
+/* Primary Text: #29233A */
+.text-\[\#29233A\],
+.text-\[\#0f1715\],
+.text-\[\#00261e\],
+.text-\[\#151e18\] {
+  color: #29233A !important;
+}
+
+/* Secondary & Muted Text: #777187 */
+.text-\[\#777187\],
+.text-\[\#64748b\],
+.text-\[\#414845\],
+.text-\[\#69746d\],
+.text-\[\#717975\] {
+  color: #777187 !important;
+}
+
+/* Mint Green: #42CBA5 */
+.text-\[\#42CBA5\],
+.text-\[\#10b981\],
+.text-\[\#059669\],
+.text-\[\#006c4c\],
+.text-\[\#83f9c5\] {
+  color: #42CBA5 !important;
+}
+
+/* Deep Mint Text for pale mint containers */
+.text-\[\#186851\],
+.text-\[\#065f46\] {
+  color: #186851 !important;
+}
+
+/* Royal Violet Text */
+.text-\[\#4C3478\] {
+  color: #4C3478 !important;
+}
+
+/* Coral Red for Errors & Overspending: #E56B75 */
+.text-\[\#E56B75\],
+.text-\[\#dc2626\],
+.text-\[\#ba1a1a\],
+.text-\[\#991b1b\],
+.text-\[\#93000a\] {
+  color: #E56B75 !important;
+}
+
+.bg-\[\#FDECEE\],
+.bg-\[\#fee2e2\],
+.bg-\[\#ffdad6\] {
+  background-color: #FDECEE !important;
+}
+
+.border-\[\#FDECEE\],
+.border-\[\#fecaca\],
+.border-\[\#ffdad6\] {
+  border-color: #F8CAD0 !important;
+}
+
+/* Soft Yellow for Warnings: #FFE8A3 */
+.bg-\[\#FFE8A3\],
+.bg-\[\#fef3c7\] {
+  background-color: #FFE8A3 !important;
+}
+
+.text-\[\#684800\],
+.text-\[\#92400e\],
+.text-\[\#b45309\] {
+  color: #735100 !important;
+}
+
+/* Interactive Hover States */
+.hover\:bg-\[\#F7F5FC\]:hover,
+.hover\:bg-\[\#f8faf9\]:hover,
+.hover\:bg-\[\#f0f4f1\]:hover,
+.hover\:bg-\[\#f0f5f2\]:hover,
+.hover\:bg-\[\#f2fcf2\]:hover {
+  background-color: #F7F5FC !important;
+}
+
+.hover\:bg-\[\#EDE7FF\]:hover,
+.hover\:bg-\[\#e5ece7\]:hover,
+.hover\:bg-\[\#e1ebe1\]:hover {
+  background-color: #EDE7FF !important;
+}
+
+.hover\:bg-\[\#E5F8F1\]:hover,
+.hover\:bg-\[\#d1fae5\]:hover {
+  background-color: #E5F8F1 !important;
+}
+
+/* Glassmorphic Top Header & Bottom Nav */
+.bg-white\/80,
+.bg-white\/90,
+.bg-\[\#f8faf9\]\/85,
+.bg-\[\#f2fcf2\]\/85 {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+}
+
+/* Soft cards with subtle lavender shadows */
+.card-subtle {
+  box-shadow: 0 1px 3px rgba(76, 52, 120, 0.05), 0 1px 2px rgba(76, 52, 120, 0.03);
+}
+
+/* Violet focus rings & sliders */
+.focus\:ring-\[\#123d32\]:focus,
+.focus\:ring-\[\#0d382c\]:focus,
+.focus\:ring-\[\#006c4c\]:focus,
+.focus\:ring-\[\#4C3478\]:focus {
+  --tw-ring-color: #8B6FE8 !important;
+}
+
+input[type="range"] {
+  accent-color: #4C3478 !important;
+}
+
+/* ========================================================================= */
+/* DARK MODE: DEEP VIOLET OBSIDIAN & MINT 2.0                                */
+/* ========================================================================= */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #130E20 !important;
+  color: #F4F0FF !important;
+}
+
+/* Canvas background */
+html.dark .bg-\[\#F7F5FC\],
+html.dark .bg-\[\#f8faf9\],
+html.dark .bg-\[\#f2fcf2\] {
+  background-color: #130E20 !important;
+}
+
+/* Cards & Surfaces */
+html.dark .bg-white {
+  background-color: #1E1730 !important;
+  color: #F4F0FF !important;
+}
+
+/* Soft containers & wells */
+html.dark .bg-\[\#EDE7FF\],
+html.dark .bg-\[\#ecf6ed\],
+html.dark .bg-\[\#f0f4f2\],
+html.dark .bg-\[\#f0f5f2\],
+html.dark .bg-\[\#e8f0eb\] {
+  background-color: #291F40 !important;
+}
+
+/* Borders in dark mode */
+html.dark .border-\[\#E9E4F2\],
+html.dark .border-\[\#e2e8e4\],
+html.dark .border-\[\#e1ebe1\],
+html.dark .border-\[\#dbe5dc\],
+html.dark .border-slate-200 {
+  border-color: #352852 !important;
+}
+
+/* Primary text in dark mode */
+html.dark .text-\[\#29233A\],
+html.dark .text-\[\#0f1715\],
+html.dark .text-\[\#00261e\],
+html.dark .text-\[\#151e18\] {
+  color: #F4F0FF !important;
+}
+
+/* Secondary & muted text in dark mode */
+html.dark .text-\[\#777187\],
+html.dark .text-\[\#64748b\],
+html.dark .text-\[\#414845\],
+html.dark .text-\[\#69746d\],
+html.dark .text-\[\#717975\] {
+  color: #ADA5C3 !important;
+}
+
+/* Primary buttons in dark mode: Bright Lavender or Royal Violet */
+html.dark .bg-\[\#4C3478\],
+html.dark .bg-\[\#0d382c\],
+html.dark .bg-\[\#123d32\] {
+  background-color: #4C3478 !important;
+  color: #FFFFFF !important;
+}
+
+html.dark .hover\:bg-\[\#3B275F\]:hover,
+html.dark .hover\:bg-\[\#082920\]:hover,
+html.dark .hover\:bg-\[\#00261e\]:hover {
+  background-color: #5D4391 !important;
+}
+
+/* Mint green in dark mode */
+html.dark .text-\[\#42CBA5\],
+html.dark .text-\[\#10b981\],
+html.dark .text-\[\#059669\],
+html.dark .text-\[\#006c4c\],
+html.dark .text-\[\#83f9c5\] {
+  color: #42CBA5 !important;
+}
+
+html.dark .bg-\[\#E5F8F1\],
+html.dark .bg-\[\#83f9c5\] {
+  background-color: rgba(66, 203, 165, 0.16) !important;
+  color: #42CBA5 !important;
+}
+
+html.dark .bg-\[\#83f9c5\]\/30,
+html.dark .bg-\[\#83f9c5\]\/20 {
+  background-color: rgba(66, 203, 165, 0.15) !important;
+}
+
+/* Glassmorphism headers in dark mode */
+html.dark .bg-white\/80,
+html.dark .bg-white\/90,
+html.dark .bg-\[\#f8faf9\]\/85,
+html.dark .bg-\[\#f2fcf2\]\/85 {
+  background-color: rgba(19, 14, 32, 0.90) !important;
+}
+
+/* Form inputs in dark mode */
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: #231B38 !important;
+  border-color: #3C2E5D !important;
+  color: #F4F0FF !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #8E86A7 !important;
+}
+
+/* Hover states in dark mode */
+html.dark .hover\:bg-\[\#F7F5FC\]:hover,
+html.dark .hover\:bg-\[\#f8faf9\]:hover,
+html.dark .hover\:bg-\[\#f0f5f2\]:hover {
+  background-color: #291F40 !important;
+}
+
+html.dark .hover\:bg-\[\#EDE7FF\]:hover,
+html.dark .hover\:bg-\[\#e5ece7\]:hover,
+html.dark .hover\:bg-\[\#e1ebe1\]:hover {
+  background-color: #352852 !important;
+}
+
+/* Coral Red containers in dark mode */
+html.dark .bg-\[\#FDECEE\],
+html.dark .bg-\[\#fee2e2\],
+html.dark .bg-\[\#ffdad6\] {
+  background-color: rgba(229, 107, 117, 0.18) !important;
+}
+
+html.dark .border-\[\#FDECEE\],
+html.dark .border-\[\#fecaca\],
+html.dark .border-\[\#ffdad6\] {
+  border-color: rgba(229, 107, 117, 0.35) !important;
+}
+
+html.dark .text-\[\#E56B75\],
+html.dark .text-\[\#dc2626\],
+html.dark .text-\[\#ba1a1a\],
+html.dark .text-\[\#991b1b\] {
+  color: #F08D95 !important;
+}
+
+/* Warning Yellow in dark mode */
+html.dark .bg-\[\#FFE8A3\],
+html.dark .bg-\[\#fef3c7\] {
+  background-color: rgba(255, 232, 163, 0.18) !important;
+}
+
+html.dark .text-\[\#684800\],
+html.dark .text-\[\#92400e\],
+html.dark .text-\[\#b45309\] {
+  color: #FFE8A3 !important;
+}
