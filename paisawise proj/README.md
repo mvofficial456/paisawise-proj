@@ -1,11 +1,8 @@
 
 
 
-# Run and deploy your AI Studio app
 
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/53804998-7fab-4343-8185-d80b60767592
+View app on :https://paisawise-saver.vercel.app/
 
 ## Run Locally
 
